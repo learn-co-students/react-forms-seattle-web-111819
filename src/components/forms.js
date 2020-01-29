@@ -1,4 +1,4 @@
-
+//notes for original Form.js
 
 
 import React from 'react';          // Since the form values are stored in state, they are easily passed down as props or 
@@ -12,11 +12,12 @@ class Form extends React.Component {
     submittedDate: []
 
   }
-//4. update State!        --> 5. onSubmit eListener
+//4. update State!                      --> 5. onSubmit eListener
   handleFirstNameChange = event => {   // EVENT contains data abt TARGET. (whatev DOM el EVENT was trigged on)
     this.setState({                    // TARGET is the INPUT & has a VALUE ATR which is = whatev is currently
       firstName: event.target.value    // entered into it. this is not the VAL we provided from STATE
-    })    //updating state based on event.target.value -->causes a re-render. // new state values just set are used to set value attrs of two inputs
+    })                                 // updating state based on event.target.value -->causes a re-render. // new state values just set 
+                                       // are used to set value attrs of two inputs
   }
                                             // #3 commentary
   handleLastNameChange = event => {         // in RENDER form 2 ANONYMOUS FXs are invoked which accept the
@@ -26,9 +27,9 @@ class Form extends React.Component {
   }
 
   handleSubmit = event => {                 //5. 
-    event.preentDefault();
-    let formData = { firstName: this.state.firstName, lastName: this.state.lastName }   //current form data using the values stored in state.
-    // this.sendFormDataSomewhere(formData)        //form, when submitted should send form data somewhere/ might be defined in same form component, but is often provided as a prop.
+    event.preentDefault();                // current form data using the values stored in state.
+    let formData = { firstName: this.state.firstName, lastName: this.state.lastName }   //form, when submitted should send form data
+    // this.sendFormDataSomewhere(formData)              // somewhere/ might be defined in same form component, but is often provided as a prop.
     let dataArray = this.state.submittedData.concat(formData)
     this.setState({submittedData: dataArray})
   }
